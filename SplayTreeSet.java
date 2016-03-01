@@ -23,6 +23,10 @@ public class SplayTreeSet<E extends Comparable<? super E>> implements SimpleSet<
             return this.rightChild;
         }
 
+        public Node getParent() {
+            return this.parent;
+        }
+
         public void setLeftChild(Node node) {
             this.leftChild = node;
             if (node != null) {

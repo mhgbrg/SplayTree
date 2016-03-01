@@ -51,8 +51,26 @@ public class SplayTreeSet<E extends Comparable<? super E>> implements SimpleSet<
     }
 
     public boolean add(E x) {
-        size++;
-        return false;
+        Node node = findWithoutSplaying(x);
+
+        if (node.getValue().equals(x)) {
+            splay(node);
+            return false;
+        } else {
+            Node newNode = new Node(x);
+            int comparison = x.compareTo(node.getValue());
+            if (comparison < 0) {
+                node.setLeftChild(newNode);
+            } else if (comparison > 0) {
+                node.setRightChild(newNode);
+            } else {
+                // node and newNode is the same -- should never happen!
+                return false;
+            }
+            splay(newNode);
+            size++;
+            return true;
+        }
     }
 
     public boolean remove(E x) {

@@ -40,6 +40,14 @@ public class SplayTreeSet<E extends Comparable<? super E>> implements SimpleSet<
                 node.parent = this;
             }
         }
+
+        public void replaceWith(Node node) {
+            if (this == this.parent.leftChild) {
+                this.parent.setLeftChild(node);
+            } else if (this == this.parent.rightChild) {
+                this.parent.setRightChild(node);
+            }
+        }
     }
 
     private Node root;

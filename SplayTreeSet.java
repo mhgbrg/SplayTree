@@ -51,17 +51,19 @@ public class SplayTreeSet<E extends Comparable<? super E>> implements SimpleSet<
     }
 
     /**
-     * Finds a node with a specified value in the tree.
+     * Finds a node with a specified value in the tree and splays it. If such a
+     * node doesn't exist, the node where the search ended is splayed and the
+     * method returns null.
      *
      * @param x The value to search for.
      * @return a node from the tree containing the value x. If no such node
      *         exists, null is returned.
      */
-    private Node find(E x) {
+    public Node find(E x) {
         Node node = findRecursive(x, this.root);
         splay(node);
 
-        // If we ended up at a node with the correct value, we return the node.
+        // If we ended up at a node with the specified value, we return the node.
         // Otherwise we return null.
         if (node != null && node.getValue().equals(x)) {
             return node;

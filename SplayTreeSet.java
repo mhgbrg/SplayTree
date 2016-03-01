@@ -98,22 +98,20 @@ public class SplayTreeSet<E extends Comparable<? super E>> implements SimpleSet<
         int comparison = x.compareTo(root.getValue());
 
         if (comparison < 0) {
-            if (root.getLeftChild() == null) {
-                return root;
+            if (root.getLeftChild() != null) {
+                return findRecursive(x, root.getLeftChild());
             }
-            return findRecursive(x, root.getLeftChild());
         } else if (comparison > 0) {
-            if (root.getRightChild() == null) {
-                return root;
+            if (root.getRightChild() != null) {
+                return findRecursive(x, root.getRightChild());
             }
-            return findRecursive(x, root.getRightChild());
-        } else {
-            // We have found the right node!
-            return root;
         }
+
+        // We have found the right node!
+        return root;
     }
 
     private void splay(Node node) {
-        
+
     }
 }

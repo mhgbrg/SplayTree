@@ -12,9 +12,11 @@ public class SplayTreeSet<E extends Comparable<? super E>> implements SimpleSet<
         }
     }
 
+    private Node root;
     private int size;
 
     public SplayTreeSet() {
+        this.root = null;
         this.size = 0;
     }
 

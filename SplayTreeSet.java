@@ -1,7 +1,16 @@
 import java.util.*;
 
 public class SplayTreeSet<E extends Comparable<? super E>> implements SimpleSet<E> {
+    private class Node {
+        private E value;
+        private Node parent;
+        private Node leftChild;
+        private Node rightChild;
 
+        public Node(E value) {
+            this.value = value;
+        }
+    }
 
     private int size;
 

@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * A Splay Tree that doesn't allow duplicate values. The behavoiur of the tree
+ * A Splay Tree that doesn't allow duplicate values. The behaviour of the tree
  * is based on the description in https://www.cs.berkeley.edu/~jrs/61b/lec/36.
  */
 public class SplayTreeSet<E extends Comparable<? super E>> implements SimpleSet<E> {

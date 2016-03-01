@@ -73,6 +73,13 @@ public class SplayTreeSet<E extends Comparable<? super E>> implements SimpleSet<
     }
 
     /**
+     * Same as find(E x), but always returns the found node and doesn't splay it.
+     */
+    private Node findWithoutSplaying(E x) {
+        return findRecursive(x, this.root);
+    }
+
+    /**
      * Recursively finds a node in the tree containing a specified value. If
      * the specified value is not in the tree, the node where the search ended
      * is returned.
